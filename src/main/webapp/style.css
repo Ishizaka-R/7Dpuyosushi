@@ -1,0 +1,122 @@
+/* style.css */
+
+body {
+    margin: 0 !important; /* デフォルトマージンを強制的に削除 */
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: url("img/haikei.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+
+
+#game-container {
+    display: flex;
+    flex-direction: column; /* 縦方向に要素を配置 */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 画面全体の高さ */
+    margin: 0;
+    padding: 0;
+    background: inherit; /* 親要素の背景を継承 */
+}
+
+
+#game-stage {
+    position: relative;
+    width: 336px;   /* 7列 × 48px */
+    height: 480px;  /* 10行 × 48px */
+    margin: 0;      /* 余白を完全に削除 */
+    background-color: rgba(252, 246, 242, 0.9);
+    overflow: hidden; /* はみ出しを隠す */
+    border: 2px solid #333; /* ゲームエリアの枠線 */
+}
+
+
+
+
+
+
+.puyo {
+    position: absolute;
+    width: 48px;   /* 60px * 0.8 = 48px */
+    height: 48px;  /* 60px * 0.8 = 48px */
+}
+
+
+.puyo1 {
+    background: url("img/puyo_1.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo2 {
+    background: url("img/puyo_2.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo3 {
+    background: url("img/puyo_3.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo4 {
+    background: url("img/puyo_4.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo5 {
+    background: url("img/puyo_5.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo6 {
+    background: url("img/puyo_6.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo7 {
+    background: url("img/puyo_7.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo8 {
+    background: url("img/puyo_8.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo9 {
+    background: url("img/puyo_9.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo10 {
+    background: url("img/puyo_10.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo11 {
+    background: url("img/puyo_11.png") no-repeat center;
+    background-size: contain;
+}
+
+.puyo12 {
+    background: url("img/puyo_12.png") no-repeat center;
+    background-size: contain;
+}
+
+#score-container {
+    position: absolute; /* ゲームエリア外に配置するために絶対配置 */
+    top: 20px; /* 画面上部に余白を追加 */
+    left: 50%; /* 水平方向中央 */
+    transform: translateX(-50%); /* 中央に配置 */
+    font-size: 18px; /* フォントサイズ */
+    font-weight: bold;
+    color: #fff; /* スコアの文字色を白に */
+    background-color: #000; /* スコアの背景色を黒に */
+    padding: 8px 20px; /* 左右の余白を減らして、幅を自動調整 */
+    border-radius: 5px; /* 角を丸くする */
+    z-index: 10; /* 他の要素より前面に表示 */
+    white-space: nowrap; /* スコアが長くても改行されないように */
+}
