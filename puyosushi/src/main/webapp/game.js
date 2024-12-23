@@ -92,20 +92,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	        
 			// マッチしたぷよごとに得点を設定
-			matches.forEach(([x, y]) => {
-	            const puyoType = Stage.board[y][x]?.classList[1]; // ぷよの種類を取得
-	            if (!puyoType) return;
+			function calculateScore(puyoType) {
+			    if (["puyo1", "puyo2", "puyo3"].includes(puyoType)) return 400;
+			    if (["puyo4", "puyo5", "puyo6"].includes(puyoType)) return 800;
+			    if (["puyo7", "puyo8", "puyo9"].includes(puyoType)) return 1200;
+			    if (["puyo10", "puyo11", "puyo12"].includes(puyoType)) return 2000;
+			    return 0;
+			}
 
-	            if (["puyo1", "puyo2", "puyo3"].includes(puyoType)) {
-	                matchScore += 400; // puyo_1 ～ puyo_3 の場合は400点
-	            } else if (["puyo4", "puyo5", "puyo6"].includes(puyoType)) {
-	                matchScore += 800; // puyo_4 ～ puyo_6 の場合は800点
-	            } else if (["puyo7", "puyo8", "puyo9"].includes(puyoType)) {
-	                matchScore += 1200; // puyo_7 ～ puyo_9 の場合は1200点
-	            } else if (["puyo10", "puyo11", "puyo12"].includes(puyoType)) {
-	                matchScore += 2000; // puyo_10 ～ puyo_12 の場合は2000点
-	            }
-	        });
+			matches.forEach(function(match) {
+			    var x = match[0];
+			    var y = match[1];
+			    var puyo = Stage.board[y] && Stage.board[y][x] ? Stage.board[y][x] : null;
+			    if (puyo && puyo.classList) {
+			        var puyoType = puyo.classList[1]; // ぷよの種類を取得
+			        matchScore += calculateScore(puyoType);
+			    }
+			});
+
+
 
 	        // 連鎖によるボーナス得点
 	        if (chainCount === 2) {
